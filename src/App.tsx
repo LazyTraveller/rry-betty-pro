@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { observer, inject } from 'mobx-react'
 // import { DatePicker } from 'antd'
 // import 'antd/dist/antd.css'
-import store from './store'
+// import store from './store'
 
 class App extends Component {
     render() {
