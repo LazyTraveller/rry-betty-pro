@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const path = require('path')
+const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: "development",
@@ -12,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|tsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
       },
@@ -52,7 +53,8 @@ module.exports = {
       title: 'pro',
       template: 'dist/index.html'
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new ESLintPlugin()
   ],
   
   devServer: {
