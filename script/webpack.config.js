@@ -4,8 +4,8 @@ const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
     filename: 'index.js'
@@ -14,36 +14,36 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|tsx)$/,
-        loader: "babel-loader",
-        exclude: /node_modules/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
       },
       {
         test: /\.(css|less)$/,
         use: [
             {
-                loader: "style-loader",
+                loader: 'style-loader'
             },
             {
-                loader: "css-loader",
+                loader: 'css-loader',
                 options: {
-                    importLoaders: 1,
-                },
+                    importLoaders: 1
+                }
             },
             {
-                loader: "less-loader",
+                loader: 'less-loader',
                 options: {
-                    javascriptEnabled: true,
-                },
-            },
-        ],
+                  importLoaders: 2
+                }
+            }
+        ]
       },
       {
         test: /\.(png|svg|jpg|gif|jpeg)$/,
-        loader: "file-loader"
+        loader: 'file-loader'
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: "file-loader"
+        loader: 'file-loader'
       }
     ]
   },
@@ -56,11 +56,11 @@ module.exports = {
     new CleanWebpackPlugin(),
     new ESLintPlugin()
   ],
-  
+
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"),
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
     historyApiFallback: true,
-    compress: true,
+    compress: true
   }
-}
+};
